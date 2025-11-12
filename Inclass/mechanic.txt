@@ -14,20 +14,23 @@ As a mechanic would I be responsible for multiple services throughout the day?
 
 
 customers - 
-    -ID INT PK, first_name VC, last_name VC, Address VC, Phone INT 
+    -ID INT PK, first_name VC, last_name VC, Address VC, Phone INT, email VC
 
 
 service_tickets,
-    -ID INT PK, date_of_service DATE, amount_quoted INT, amount_charged INT
+    -ID INT PK, date_of_service DATE, amount_quoted INT, amount_charged INT, mechanic_assigned VC
 
 
 
 Mechanics - 
+    -ID INT PK, first_name VC, last_name VC, email VC, phone VC, salary INT
 
 
 Car - 
+    -ID INT PK, year INT, make VC, model VC, color VC, Specialization VC, VIN VC, notes text
 
 
 
 Relationships:
-
+customer -> service_tickets: 1:M One customer can receive many services, once service_ticket will link back to a single customer
+service_tickets -> mechanics: M:M 1 ticket could require many mechanics, 1 mechanic will work on many tickets
